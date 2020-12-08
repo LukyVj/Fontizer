@@ -7,10 +7,9 @@ exports.__esModule = true;
 /** @jsx jsx */
 var react_1 = require("react");
 var react_2 = require("@emotion/react");
-var Icon = function () {
-    var svg = require("!raw-loader!./icons/icon.svg");
-    return <span dangerouslySetInnerHTML={{ __html: svg }}/>;
-};
+var Icon = function () { return (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 7V4h16v3M9 20h6M12 4v16"/>
+  </svg>); };
 var useOnClickOutside = function (ref, handler) {
     react_1.useEffect(function () {
         var listener = function (event) {

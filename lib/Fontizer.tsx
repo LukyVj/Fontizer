@@ -279,6 +279,8 @@ const Fontizer = ({ position = "bl", callback }: FontizerProps) => {
         </button>
       </div>
     );
+  } else {
+    return null;
   }
 };
 

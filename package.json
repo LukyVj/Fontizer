@@ -1,6 +1,6 @@
 {
   "name": "fontizer",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Tiny React component to you manage your website's fonts display",
   "main": "lib/index.js",
   "author": "LukyVj <lucas.bonomi@gmail.com>",
@@ -18,7 +18,6 @@
     "typescript": "^4.1.2"
   },
   "dependencies": {
-    "@emotion/react": "^11.1.2",
-    "raw-loader": "^4.0.2"
+    "@emotion/react": "^11.1.2"
   }
 }

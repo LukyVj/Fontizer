@@ -2,10 +2,20 @@
 import { useState, useRef, useEffect } from "react";
 import { css, jsx } from "@emotion/react";
 
-const Icon = () => {
-  const svg = require(`!raw-loader!./icons/icon.svg`);
-  return <span dangerouslySetInnerHTML={{ __html: svg }} />;
-};
+const Icon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M4 7V4h16v3M9 20h6M12 4v16" />
+  </svg>
+);
 
 const useOnClickOutside = (
   ref: React.RefObject<HTMLDivElement>,

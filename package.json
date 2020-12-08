@@ -1,6 +1,6 @@
 {
   "name": "fontizer",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Tiny React component to you manage your website's fonts display",
   "main": "lib/index.js",
   "author": "LukyVj <lucas.bonomi@gmail.com>",

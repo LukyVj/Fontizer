@@ -3,6 +3,9 @@
 import { useState, useRef, useEffect } from "react";
 import { css, jsx } from "@emotion/react";
 
+const _BASE_FONT_SIZE_CSS_VARIABLE = "--base-font-size";
+const _BASE_FONT_WEIGHT_CSS_VARIABLE = "--base-font-weight";
+
 const Icon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -13,6 +16,7 @@ const Icon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
+    className="fontizer-icon"
   >
     <path d="M4 7V4h16v3M9 20h6M12 4v16" />
   </svg>
@@ -59,8 +63,10 @@ const Fontizer = ({ position = "bl", callback }: FontizerProps) => {
   if (typeof document !== "undefined") {
     const root = document.documentElement;
     const [docStyle] = useState(getComputedStyle(root));
-    const strFontSize = docStyle.getPropertyValue("--base-font-size");
-    const strFontWeight = docStyle.getPropertyValue("--base-font-weight");
+    const strFontSize = docStyle.getPropertyValue(_BASE_FONT_SIZE_CSS_VARIABLE);
+    const strFontWeight = docStyle.getPropertyValue(
+      _BASE_FONT_WEIGHT_CSS_VARIABLE
+    );
     const [baseFontSize, setBaseFontSize] = useState(parseInt(strFontSize, 0));
     const [baseFontWeight, setBaseFontWeight] = useState(
       parseInt(strFontWeight, 0)
@@ -123,8 +129,11 @@ const Fontizer = ({ position = "bl", callback }: FontizerProps) => {
     }, [panel, position, docStyle]);
 
     useEffect(() => {
-      root.style.setProperty("--base-font-size", `${baseFontSize}px`);
-      root.style.setProperty("--base-font-weight", `${baseFontWeight}`);
+      root.style.setProperty(_BASE_FONT_SIZE_CSS_VARIABLE, `${baseFontSize}px`);
+      root.style.setProperty(
+        _BASE_FONT_WEIGHT_CSS_VARIABLE,
+        `${baseFontWeight}`
+      );
       const updatedValues = [baseFontSize, baseFontWeight];
       if (callback) callback(updatedValues);
     }, [
@@ -139,7 +148,7 @@ const Fontizer = ({ position = "bl", callback }: FontizerProps) => {
     useOnClickOutside(testRef, () => setPanel(false));
 
     return (
-      <div ref={testRef}>
+      <div ref={testRef} className="fontizer-panel">
         {panel && (
           <div
             ref={fontizerPanelRef}
@@ -274,6 +283,7 @@ const Fontizer = ({ position = "bl", callback }: FontizerProps) => {
             }
           `}
           onClick={() => setPanel(!panel)}
+          className="fontizer-button"
         >
           <Icon />
         </button>

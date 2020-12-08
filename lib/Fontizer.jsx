@@ -4,6 +4,7 @@ var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cook
     return cooked;
 };
 exports.__esModule = true;
+/** @jsxRuntime classic */
 /** @jsx jsx */
 var react_1 = require("react");
 var react_2 = require("@emotion/react");

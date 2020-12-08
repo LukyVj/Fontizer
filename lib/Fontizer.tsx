@@ -148,7 +148,7 @@ const Fontizer = ({ position = "bl", callback }: FontizerProps) => {
     useOnClickOutside(testRef, () => setPanel(false));
 
     return (
-      <div ref={testRef} className="fontizer-panel">
+      <div ref={testRef} className="fontizer-wrapper">
         {panel && (
           <div
             ref={fontizerPanelRef}
@@ -184,6 +184,7 @@ const Fontizer = ({ position = "bl", callback }: FontizerProps) => {
                 }
               }
             `}
+            className="fontizer-panel"
           >
             <h5
               css={css`

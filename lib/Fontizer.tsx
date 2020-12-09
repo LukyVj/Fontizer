@@ -60,13 +60,13 @@ const Fontizer = ({ position = "bl", callback, variables }: FontizerProps) => {
   const fontizerButtonRef = useRef<HTMLButtonElement>(null);
   const fontizerPanelRef = useRef<HTMLDivElement>(null);
   const testRef = useRef<HTMLDivElement>(null);
+  let _BASE_FONT_SIZE_CSS_VARIABLE = "--base-font-size";
+  let _BASE_FONT_WEIGHT_CSS_VARIABLE = "--base-font-weight";
 
-  const _BASE_FONT_SIZE_CSS_VARIABLE = variables.size
-    ? variables.size
-    : "--base-font-size";
-  const _BASE_FONT_WEIGHT_CSS_VARIABLE = variables.weight
-    ? variables.weight
-    : "--base-font-weight";
+  if (variables && variables.size && variables.weight) {
+    _BASE_FONT_SIZE_CSS_VARIABLE = variables.size;
+    _BASE_FONT_WEIGHT_CSS_VARIABLE = variables.weight;
+  }
 
   if (typeof document !== "undefined") {
     const root = document.documentElement;

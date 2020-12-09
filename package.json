@@ -1,6 +1,6 @@
 {
   "name": "fontizer",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Tiny React component to you manage your website's fonts display",
   "main": "lib/index.js",
   "author": "LukyVj <lucas.bonomi@gmail.com>",
@@ -19,5 +19,9 @@
   },
   "dependencies": {
     "@emotion/react": "^11.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LukyVj/Fontizer.git"
   }
 }

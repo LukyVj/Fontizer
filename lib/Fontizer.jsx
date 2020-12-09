@@ -8,8 +8,6 @@ exports.__esModule = true;
 /** @jsx jsx */
 var react_1 = require("react");
 var react_2 = require("@emotion/react");
-var _BASE_FONT_SIZE_CSS_VARIABLE = "--base-font-size";
-var _BASE_FONT_WEIGHT_CSS_VARIABLE = "--base-font-weight";
 var Icon = function () { return (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="fontizer-icon">
     <path d="M4 7V4h16v3M9 20h6M12 4v16"/>
   </svg>); };
@@ -35,11 +33,17 @@ var useOnClickOutside = function (ref, handler) {
     }, [ref, handler]);
 };
 var Fontizer = function (_a) {
-    var _b = _a.position, position = _b === void 0 ? "bl" : _b, callback = _a.callback;
+    var _b = _a.position, position = _b === void 0 ? "bl" : _b, callback = _a.callback, variables = _a.variables;
     var _c = react_1.useState(false), panel = _c[0], setPanel = _c[1];
     var fontizerButtonRef = react_1.useRef(null);
     var fontizerPanelRef = react_1.useRef(null);
     var testRef = react_1.useRef(null);
+    var _BASE_FONT_SIZE_CSS_VARIABLE = variables.size
+        ? variables.size
+        : "--base-font-size";
+    var _BASE_FONT_WEIGHT_CSS_VARIABLE = variables.weight
+        ? variables.weight
+        : "--base-font-weight";
     if (typeof document !== "undefined") {
         var root_1 = document.documentElement;
         var docStyle = react_1.useState(getComputedStyle(root_1))[0];

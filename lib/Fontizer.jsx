@@ -38,12 +38,12 @@ var Fontizer = function (_a) {
     var fontizerButtonRef = react_1.useRef(null);
     var fontizerPanelRef = react_1.useRef(null);
     var testRef = react_1.useRef(null);
-    var _BASE_FONT_SIZE_CSS_VARIABLE = variables.size
-        ? variables.size
-        : "--base-font-size";
-    var _BASE_FONT_WEIGHT_CSS_VARIABLE = variables.weight
-        ? variables.weight
-        : "--base-font-weight";
+    var _BASE_FONT_SIZE_CSS_VARIABLE = "--base-font-size";
+    var _BASE_FONT_WEIGHT_CSS_VARIABLE = "--base-font-weight";
+    if (variables && variables.size && variables.weight) {
+        _BASE_FONT_SIZE_CSS_VARIABLE = variables.size;
+        _BASE_FONT_WEIGHT_CSS_VARIABLE = variables.weight;
+    }
     if (typeof document !== "undefined") {
         var root_1 = document.documentElement;
         var docStyle = react_1.useState(getComputedStyle(root_1))[0];

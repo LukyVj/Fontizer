@@ -3,9 +3,6 @@
 import { useState, useRef, useEffect } from "react";
 import { css, jsx } from "@emotion/react";
 
-const _BASE_FONT_SIZE_CSS_VARIABLE = "--base-font-size";
-const _BASE_FONT_WEIGHT_CSS_VARIABLE = "--base-font-weight";
-
 const Icon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -53,12 +50,23 @@ const useOnClickOutside = (
 interface FontizerProps {
   position?: "bl" | "tl" | "br" | "tr";
   callback?: Function | false;
+  variables?: {
+    size: string;
+    weight: string;
+  };
 }
-const Fontizer = ({ position = "bl", callback }: FontizerProps) => {
+const Fontizer = ({ position = "bl", callback, variables }: FontizerProps) => {
   const [panel, setPanel] = useState(false);
   const fontizerButtonRef = useRef<HTMLButtonElement>(null);
   const fontizerPanelRef = useRef<HTMLDivElement>(null);
   const testRef = useRef<HTMLDivElement>(null);
+
+  const _BASE_FONT_SIZE_CSS_VARIABLE = variables.size
+    ? variables.size
+    : "--base-font-size";
+  const _BASE_FONT_WEIGHT_CSS_VARIABLE = variables.weight
+    ? variables.weight
+    : "--base-font-weight";
 
   if (typeof document !== "undefined") {
     const root = document.documentElement;
